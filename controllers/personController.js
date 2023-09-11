@@ -5,7 +5,9 @@ const CustomError = require("../errors");
 const createPerson = async (req, res) => {
   const person = await Person.create(req.body);
 
-  res.status(StatusCodes.CREATED).json({ person });
+  res
+    .status(StatusCodes.CREATED)
+    .json({ person: { _id: person._id, name: person.name } });
 };
 
 const getPerson = async (req, res) => {
@@ -42,7 +44,7 @@ const updatePerson = async (req, res) => {
       new: true,
       runValidators: true,
     }
-  );
+  ).select("_id name");
   if (!person) {
     throw new CustomError(
       "Not Found",
@@ -66,7 +68,7 @@ const deletePerson = async (req, res) => {
     );
   }
 
-  res.status(StatusCodes.NO_CONTENT);
+  res.status(StatusCodes.NO_CONTENT).send();
 };
 
 module.exports = {

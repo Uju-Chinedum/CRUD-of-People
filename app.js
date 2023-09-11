@@ -1,11 +1,13 @@
 require("dotenv").config();
 require("express-async-errors");
+
 const express = require("express");
 const rateLimiter = require("express-rate-limit");
 const helmet = require("helmet");
 const xss = require("xss-clean");
 const cors = require("cors");
 const mongoSanitize = require("express-mongo-sanitize");
+
 const connectDB = require("./db/connect");
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
@@ -26,7 +28,9 @@ app.use(helmet());
 app.use(xss());
 app.use(cors());
 app.use(mongoSanitize());
+
 app.use(express.json());
+app.use(express.static("./public"))
 
 app.use("/api", personRouter);
 
