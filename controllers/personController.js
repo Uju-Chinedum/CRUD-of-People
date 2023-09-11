@@ -1,6 +1,5 @@
-const { model } = require("mongoose");
 const Person = require("../models/Person");
-const {} = require("http-status-codes");
+const {StatusCodes} = require("http-status-codes");
 
 const createPerson = async (req, res) => {
   res.send("create person");
