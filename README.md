@@ -2,7 +2,7 @@
 
 This repository contains a Node.js and MongoDB application that implements basic CRUD operations for a person. You can Create a new person, Get a person, Update a person and Delete a person. It utilizes the Express.js framework for handling routes and controllers and MongoDB for data storage.
 
-<!-- You can view the project at <https://crud-of-events.onrender.com> -->
+You can view the project at <https://crud-of-people.onrender.com/>, view the UML diagram at uml.png and the Postman docs at docs.json
 
 ## Prerequisites
 
