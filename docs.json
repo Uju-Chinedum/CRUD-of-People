@@ -21,9 +21,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api",
+					"raw": "https://crud-of-people.onrender.com/api",
 					"host": [
-						"{{URL}}"
+						"https://crud-of-people.onrender.com"
 					],
 					"path": [
 						"api"
@@ -38,13 +38,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/64ff9ab600dd3dcb25835a72",
+					"raw": "https://crud-of-people.onrender.com/api/{:id}",
 					"host": [
-						"{{URL}}"
+						"https://crud-of-people.onrender.com"
 					],
 					"path": [
 						"api",
-						"64ff9ab600dd3dcb25835a72"
+						"{:id}"
 					]
 				}
 			},
@@ -65,13 +65,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/64ff9ab600dd3dcb25835a72",
+					"raw": "https://crud-of-people.onrender.com/api/{:id}",
 					"host": [
-						"{{URL}}"
+						"https://crud-of-people.onrender.com"
 					],
 					"path": [
 						"api",
-						"64ff9ab600dd3dcb25835a72"
+						"{:id}"
 					]
 				}
 			},
@@ -83,13 +83,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/64ff9ab600dd3dcb25835a72",
+					"raw": "https://crud-of-people.onrender.com/api/{:id}",
 					"host": [
-						"{{URL}}"
+						"https://crud-of-people.onrender.com"
 					],
 					"path": [
 						"api",
-						"64ff9ab600dd3dcb25835a72"
+						"{:id}"
 					]
 				}
 			},
