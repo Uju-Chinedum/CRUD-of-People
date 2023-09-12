@@ -25,7 +25,7 @@ const errorHandler = (err, req, res, next) => {
 
   if (err.name === "CastError") {
     customError.error = "Not Found";
-    customError.message = `No item found with id: ${err.value}`;
+    customError.message = `No person found with id or name: ${err.value}`;
     customError.statusCode = 404;
   }
 

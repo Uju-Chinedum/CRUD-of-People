@@ -50,7 +50,7 @@ const updatePerson = async (req, res) => {
   if (!person) {
     throw new CustomError(
       "Not Found",
-      `No person with id: ${user_id}`,
+      `No person with id or name: ${user_id}`,
       StatusCodes.NOT_FOUND
     );
   }
@@ -67,7 +67,7 @@ const deletePerson = async (req, res) => {
   if (!person) {
     throw new CustomError(
       "Not Found",
-      `No person with id: ${user_id}`,
+      `No person with id or name: ${user_id}`,
       StatusCodes.NOT_FOUND
     );
   }
