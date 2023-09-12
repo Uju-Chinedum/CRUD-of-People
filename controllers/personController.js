@@ -1,6 +1,7 @@
 const Person = require("../models/Person");
 const { StatusCodes } = require("http-status-codes");
 const CustomError = require("../errors");
+const mongoose = require("mongoose")
 
 const createPerson = async (req, res) => {
   const person = await Person.create(req.body);
