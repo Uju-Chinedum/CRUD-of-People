@@ -18,7 +18,7 @@ const getPerson = async (req, res) => {
     $or: [
       {
         _id: mongoose.Types.ObjectId.isValid(user_id)
-          ? mongoose.Types.ObjectId(user_id)
+          ? user_id
           : null,
       },
       { name: user_id },
@@ -52,7 +52,7 @@ const updatePerson = async (req, res) => {
       $or: [
         {
           _id: mongoose.Types.ObjectId.isValid(user_id)
-            ? mongoose.Types.ObjectId(user_id)
+            ? user_id
             : null,
         },
         { name: user_id },
@@ -82,7 +82,7 @@ const deletePerson = async (req, res) => {
     $or: [
       {
         _id: mongoose.Types.ObjectId.isValid(user_id)
-          ? mongoose.Types.ObjectId(user_id)
+          ? user_id
           : null,
       },
       { name: user_id },
