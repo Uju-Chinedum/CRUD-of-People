@@ -35,9 +35,9 @@ The application implements the following routes:
 ### People Routes
 
 - **POST /api**: Creates a new person
-- **GET /api/:user_id**: Gets a specific person by ID
-- **PATCH /api/:user_id**: Updates a specific person by ID
-- **DELETE /api/:user_id**: Delete a person by ID
+- **GET /api/:user_id**: Gets a specific person by ID or name
+- **PATCH /api/:user_id**: Updates a specific person by ID or name
+- **DELETE /api/:user_id**: Delete a person by ID or name
 
 ## Usage
 
@@ -45,11 +45,11 @@ After the application is running, you can use an API testing tool like Postman t
 
 1. Create a new person by making a POST request to /api with the required person details in the request body.
 
-2. Get a specific person by making a GET request to /api/:user_id, where :user_id is the ID of the person you want to get.
+2. Get a specific person by making a GET request to /api/:user_id, where :user_id is the ID or name of the person you want to get.
 
-3. Update a person by making a PATCH request to /api/:user_id, where :user_id is the ID of the person you want to update.
+3. Update a person by making a PATCH request to /api/:user_id, where :user_id is the ID or name of the person you want to update.
 
-4. Delete a specific person by making a DELETE request to /api/:user_id, where :user_id is the ID of the person you want to delete.
+4. Delete a specific person by making a DELETE request to /api/:user_id, where :user_id is the ID or name of the person you want to delete.
 
 To create a new person, the following fields are needed in the request body. Asterisks are required fields:
 

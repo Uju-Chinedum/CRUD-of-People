@@ -13,11 +13,13 @@ const createPerson = async (req, res) => {
 const getPerson = async (req, res) => {
   const { user_id } = req.params;
 
-  const person = await Person.findOne({ _id: user_id }).select("_id name");
+  const person = await Person.findOne({
+    $or: [{ _id: user_id }, { name: user_id }],
+  }).select("_id name");
   if (!person) {
     throw new CustomError(
       "Not Found",
-      `No person with id: ${user_id}`,
+      `No person with id or name: ${user_id}`,
       StatusCodes.NOT_FOUND
     );
   }
@@ -38,7 +40,7 @@ const updatePerson = async (req, res) => {
   }
 
   const person = await Person.findOneAndUpdate(
-    { _id: user_id },
+    { $or: [{ _id: user_id }, { name: user_id }] },
     { name },
     {
       new: true,
@@ -59,7 +61,9 @@ const updatePerson = async (req, res) => {
 const deletePerson = async (req, res) => {
   const { user_id } = req.params;
 
-  const person = await Person.findOneAndDelete({ _id: user_id });
+  const person = await Person.findOneAndDelete({
+    $or: [{ _id: user_id }, { name: user_id }],
+  });
   if (!person) {
     throw new CustomError(
       "Not Found",
