@@ -14,7 +14,14 @@ const getPerson = async (req, res) => {
   const { user_id } = req.params;
 
   const person = await Person.findOne({
-    $or: [{ _id: user_id }, { name: user_id }],
+    $or: [
+      {
+        _id: mongoose.Types.ObjectId.isValid(user_id)
+          ? mongoose.Types.ObjectId(user_id)
+          : null,
+      },
+      { name: user_id },
+    ],
   }).select("_id name");
   if (!person) {
     throw new CustomError(
@@ -40,7 +47,16 @@ const updatePerson = async (req, res) => {
   }
 
   const person = await Person.findOneAndUpdate(
-    { $or: [{ _id: user_id }, { name: user_id }] },
+    {
+      $or: [
+        {
+          _id: mongoose.Types.ObjectId.isValid(user_id)
+            ? mongoose.Types.ObjectId(user_id)
+            : null,
+        },
+        { name: user_id },
+      ],
+    },
     { name },
     {
       new: true,
@@ -62,7 +78,14 @@ const deletePerson = async (req, res) => {
   const { user_id } = req.params;
 
   const person = await Person.findOneAndDelete({
-    $or: [{ _id: user_id }, { name: user_id }],
+    $or: [
+      {
+        _id: mongoose.Types.ObjectId.isValid(user_id)
+          ? mongoose.Types.ObjectId(user_id)
+          : null,
+      },
+      { name: user_id },
+    ],
   });
   if (!person) {
     throw new CustomError(

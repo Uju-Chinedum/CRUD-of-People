@@ -23,11 +23,11 @@ const errorHandler = (err, req, res, next) => {
     customError.statusCode = StatusCodes.BAD_REQUEST;
   }
 
-  // if (err.name === "CastError") {
-  //   customError.error = "Cast Error";
-  //   customError.message = `No person found with id or name: ${err.value}`;
-  //   customError.statusCode = 404;
-  // }
+  if (err.name === "CastError") {
+    customError.error = "Cast Error";
+    customError.message = `No person found with id or name: ${err.value}`;
+    customError.statusCode = 404;
+  }
 
   return res.status(customError.statusCode).json(customError);
 };
